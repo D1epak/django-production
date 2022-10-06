@@ -1,0 +1,171 @@
+{% extends 'theme/layout/main.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block body %}post-template-default single single-post postid-87742 single-format-standard wp-embed-responsive sidebar-right{% endblock %}
+
+{% block content %}
+    <a class="skip-link screen-reader-text" href="#content">
+        Перейти к содержанию
+    </a>
+    <header id="masthead" class="site-header full">
+        <div class="site-header-inner fixed"></div>
+    </header>
+    <!-- #masthead -->
+    <nav id="site-navigation" class="main-navigation full" style="display: none">
+        <div class="main-navigation-inner fixed">
+            <ul id="header_menu"></ul>
+        </div>
+    </nav>
+    <div class="container header-separator"></div>
+    <div class="mobile-menu-placeholder js-mobile-menu-placeholder"></div>
+    <div id="content" class="site-content fixed">
+        <div class="site-content-inner">
+            <div id="primary" class="content-area" itemscope itemtype="http://schema.org/Article">
+                <main id="main" class="site-main article-card">
+                    <article id="post-87742" class="article-post post-87742 post type-post status-publish format-standard has-post-thumbnail">
+                        <h1 class="entry-title" itemprop="headline">
+                            {{ post.title }}
+                        </h1>
+                        <div class="entry-content" itemprop="articleBody">
+                  <span itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
+                    <span itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
+                      <span itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
+                        <meta itemprop="width" content="750" />
+                        <meta itemprop="height" content="440" />
+                      </span>
+                      <meta itemprop="width" content="750" />
+                      <meta itemprop="height" content="440" /> </span>
+                      <meta itemprop="width" content="750" />
+                    <meta itemprop="height" content="440" />
+                  </span>
+                            <div class="container" style="margin-top: 20px;">
+                                {{ post.content|safe }}
+                            </div>
+                        </div>
+                        <!-- .entry-content -->
+                    </article>
+                    <div
+                            itemprop="publisher"
+                            itemscope
+                            itemtype="https://schema.org/Organization"
+                            style="display: none"
+                    >
+                        <div
+                                itemprop="logo"
+                                itemscope
+                                itemtype="https://schema.org/ImageObject"
+                        >
+                            <img
+                                    itemprop="url image"
+                                    src="https://1beauty-life.ru/wp-content/uploads/2020/04/vserg5ew.png"
+                                    alt="Копилка советов"
+                            />
+                        </div>
+                        <meta itemprop="name" content="Копилка советов" />
+                        <meta itemprop="telephone" content="Копилка советов" />
+                        <meta itemprop="address" content="https://everytips.ru" />
+                    </div>
+                </main>
+                <!-- #main -->
+            </div>
+            <!-- #primary -->
+            <aside
+                    id="secondary"
+                    class="widget-area"
+                    itemscope
+                    itemtype="http://schema.org/WPSideBar"
+            >
+                <div class="sticky-sidebar js-sticky-sidebar">
+                    <div id="search-2" class="widget widget_search">
+                        <div class="post-cards post-cards--vertical">
+                            <h3>Интересные статьи</h3>
+                            {% for serv in share_left %}
+                                <div class="post-card post-card--related">
+                                    <div class="post-card__thumbnail">
+                                        <a href="{% url 'blog:detail' serv.slug %}">
+                                            <img
+                                                    class="image_post"
+                                                    width="335"
+                                                    height="220"
+                                                    src="{{ serv.image.url }}"
+                                                    class="attachment-reboot_small size-reboot_small wp-post-image"
+                                                    alt="Черновик"
+                                                    loading="lazy"
+                                            />
+                                        </a>
+                                    </div>
+                                    <div class="post-card__title">
+                                        <a href="{% url 'blog:detail' serv.slug %}">
+                                            {{ serv.title }}
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div
+                            id="custom_html-2"
+                            class="widget_text widget widget_custom_html"
+                    >
+                        <div class="textwidget custom-html-widget">
+                            <div
+                                    id="cnt_rb_243495"
+                                    class="cnt32_rl_bg_str"
+                                    data-id="243495"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- #secondary -->
+            <div id="related-posts" class="related-posts fixed">
+                <div class="related-posts__header">Вам также может понравиться</div>
+                <div class="post-cards post-cards--vertical">
+                    {% for serv in share %}
+                        <div class="post-card post-card--related">
+                            <div class="post-card__thumbnail">
+                                <a href="{% url 'blog:detail' serv.slug %}">
+                                    <img
+                                            class="image_post"
+                                            width="335"
+                                            height="220"
+                                            src="{{ serv.image.url }}"
+                                            class="attachment-reboot_small size-reboot_small wp-post-image"
+                                            alt="Черновик"
+                                            loading="lazy"
+                                    />
+                                </a>
+                            </div>
+                            <div class="post-card__title">
+                                <a href="{% url 'blog:detail' serv.slug %}">
+                                    {{ serv.title }}
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!--.site-content-inner-->
+    </div>
+    <!--.site-content-->
+    <div class="site-footer-container">
+        <footer id="colophon" class="site-footer site-footer--style-gray full">
+            <div class="site-footer-inner fixed">
+                <div class="footer-bottom">
+                    <div class="footer-info">
+                        © 2022 Копирование материалов разрешено только с указанием
+                        активной ссылки на первоисточник.
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--.site-footer-->
+    </div>
+    <button
+            type="button"
+            class="scrolltop js-scrolltop"
+            data-mob="on"
+    ></button>
+{% endblock %}

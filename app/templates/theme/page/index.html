@@ -1,0 +1,112 @@
+{% extends 'theme/layout/main.html' %}
+
+{% block title %}Копилка советов - Советы и идеи{% endblock %}
+{% block body %}home blog wp-embed-responsive sidebar-none{% endblock %}
+{% block content %}
+    <!-- #header -->
+    <header id="masthead" class="site-header full">
+        <div class="site-header-inner fixed">
+        </div>
+    </header>
+    <!-- #main-header-padding -->
+    <nav id="site-navigation" class="main-navigation full" style="display: none;">
+        <div class="main-navigation-inner fixed">
+            <ul id="header_menu">
+            </ul>
+        </div>
+    </nav>
+    <!-- #Container | NotWork -->
+    <div class="container header-separator"></div>
+    <!-- # Mobil menu | NotWork -->
+    <div class="mobile-menu-placeholder js-mobile-menu-placeholder"></div>
+    <div class="container">
+        <div class="card-slider-container swiper-container js-swiper-home">
+            <div class="swiper-wrapper">
+                {% for serv in slider %}
+                    <div class="swiper-slide">
+                        <a href="{% url 'blog:detail'  serv.slug %}">
+                            <div class="card-slider__image" style="background-image: url({{ serv.image.url }});"></div>
+                            <div class="card-slider__body">
+                                <div class="card-slider__body-inner">
+                                    <span class="card-slider__category"></span>
+                                    <div class="card-slider__title">{{ serv.title }}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+        </div>
+
+        <div class="slider-thumbnails swiper-container js-swiper-home-thumbnails">
+            <div class="swiper-wrapper">
+                {% for serv in slider %}
+                    <div class="swiper-slide">
+                        <div class="slider-thumbnails__slide" style="background-image: url({{ serv.image.url }});">
+                            <span class="slider-thumbnails__title">{{ serv.title }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div id="content" class="site-content fixed">
+        <div class="site-content-inner">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <div class="section-block section-posts section-preset--bgi-2 is-show-thumbnails-true">
+                        <div class="post-cards post-cards--grid">
+                            {% for serv in post %}
+                                <div class="post-card post-card--grid w-animate" data-animate-style="fadeinup">
+                                    <a href="{% url 'blog:detail' serv.slug %}">
+                                        <div class="post-card__thumbnail">
+                                            <img
+                                                    class="image-main"
+                                                    width="335"
+                                                    height="220"
+                                                    src="{{ serv.image.url }}"
+                                                    class="attachment-reboot_small size-reboot_small wp-post-image"
+                                                    alt="{% url 'blog:detail' serv.slug %}"
+                                                    loading="lazy"
+                                                    itemprop="image"
+                                                    href="{% url 'blog:detail' serv.slug %}"
+                                            />
+                                            <span itemprop="articleSection" class="post-card__category"></span>
+                                        </div>
+                                    </a>
+                                    <div class="post-card__body">
+                                        <div class="post-card__title" itemprop="name">
+                    <span itemprop="headline">
+                        <a href="{% url 'blog:detail' serv.slug %}">{{ serv.title }}</a>
+                    </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <!--.post-cards-->
+                    </div>
+                    <!--.section-posts-->
+                </main>
+                <!-- #main -->
+            </div>
+            <!-- #primary -->
+        </div>
+        <!--.site-content-inner-->
+    </div>
+    <!--.site-content-->
+    <div class="site-footer-container">
+        <footer id="colophon" class="site-footer site-footer--style-gray full">
+            <div class="site-footer-inner fixed">
+                <div class="footer-bottom"><div class="footer-info">
+                    © 2022 Копирование материалов разрешено только с указанием активной ссылки на первоисточник.
+                </div>
+                </div>
+            </div>
+        </footer>
+        <!--.site-footer-->
+    </div>
+{% endblock %}

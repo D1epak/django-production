@@ -1,0 +1,199 @@
+<script>
+    var pseudo_links = document.querySelectorAll(".pseudo-clearfy-link");
+    for (var i = 0; i < pseudo_links.length; i++) {
+        pseudo_links[i].addEventListener("click", function (e) {
+            window.open(e.target.getAttribute("data-uri"));
+        });
+    }
+</script>
+<script>
+    function disable_keystrokes(e) {
+        if (e.ctrlKey || e.metaKey) {
+            var key;
+            if (window.event) key = window.event.keyCode;
+            else key = e.which;
+            if (key == 67 || key == 88 || key == 65 || key == 85 || key == 83) return false;
+            else return true;
+        }
+    }
+    document.onkeydown = disable_keystrokes;
+</script>
+<script>
+    function disableSelection(target) {
+        if (typeof target.onselectstart != "undefined")
+            target.onselectstart = function () {
+                return false;
+            };
+        else if (typeof target.style.MozUserSelect != "undefined") target.style.MozUserSelect = "none";
+        else
+            target.onmousedown = function () {
+                return false;
+            };
+        target.style.cursor = "default";
+    }
+    disableSelection(document.body);
+</script>
+<script>
+    document.oncontextmenu = function () {
+        return false;
+    };
+</script>
+<script>
+    document.addEventListener("copy", (event) => {
+        var pagelink = "\nИсточник: https://everytips.ru";
+        event.clipboardData.setData("text", document.getSelection() + pagelink);
+        event.preventDefault();
+    });
+</script>
+<script type="text/javascript" id="reboot-scripts-js-extra">
+    /* <![CDATA[ */
+    var settings_array = { rating_text_average: "\u0441\u0440\u0435\u0434\u043d\u0435\u0435", rating_text_from: "\u0438\u0437", lightbox_display: "1", sidebar_fixed: "" };
+    var wps_ajax = { url: "https:\/\/everytips.ru\/wp-admin\/admin-ajax.php", nonce: "194aa57be4" };
+    /* ]]> */
+</script>
+<script src="/static/js/scripts.min.js" id="reboot-scripts-js"></script>
+<script src="/static/js/swiper.min.js" id="reboot-swiper-js"></script>
+<script>
+    var cookie_clearfy_hide = document.cookie.replace(/(?:(?:^|.*;\s*)clearfy_cookie_hide\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+    if (!cookie_clearfy_hide.length) {
+        document.getElementById("clearfy-cookie").classList.remove("clearfy-cookie-hide");
+    }
+    document.getElementById("clearfy-cookie-accept").onclick = function () {
+        document.getElementById("clearfy-cookie").className += " clearfy-cookie-hide";
+        var clearfy_cookie_date = new Date(new Date().getTime() + 31536000 * 1000);
+        document.cookie = "clearfy_cookie_hide=yes; path=/; expires=" + clearfy_cookie_date.toUTCString();
+        setTimeout(function () {
+            document.getElementById("clearfy-cookie").parentNode.removeChild(document.getElementById("clearfy-cookie"));
+        }, 300);
+    };
+</script>
+<!-- Initialize Swiper -->
+<script>
+    var wpshopSwiperThumbs = new Swiper(".js-swiper-home-thumbnails", {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        loopedSlides: 5, //looped slides should be the same
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        breakpoints: {
+            1024: {
+                slidesPerView: 4,
+            },
+            900: {
+                slidesPerView: 3,
+            },
+            760: {
+                slidesPerView: 2,
+            },
+            600: {
+                slidesPerView: 1,
+            },
+        },
+    });
+
+    var wpshopSwiper = new Swiper(".js-swiper-home", {
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: true,
+        },
+        thumbs: {
+            swiper: wpshopSwiperThumbs,
+        },
+        loopedSlides: 5, //looped slides should be the same
+    });
+</script>
+<script>
+    var pseudo_links = document.querySelectorAll(".pseudo-clearfy-link");
+    for (var i = 0; i < pseudo_links.length; i++) {
+        pseudo_links[i].addEventListener("click", function (e) {
+            window.open(e.target.getAttribute("data-uri"));
+        });
+    }
+</script>
+<script>
+    function disable_keystrokes(e) {
+        if (e.ctrlKey || e.metaKey) {
+            var key;
+            if (window.event) key = window.event.keyCode;
+            else key = e.which;
+            if (key == 67 || key == 88 || key == 65 || key == 85 || key == 83)
+                return false;
+            else return true;
+        }
+    }
+    document.onkeydown = disable_keystrokes;
+</script>
+<script>
+    function disableSelection(target) {
+        if (typeof target.onselectstart != "undefined")
+            target.onselectstart = function () {
+                return false;
+            };
+        else if (typeof target.style.MozUserSelect != "undefined")
+            target.style.MozUserSelect = "none";
+        else
+            target.onmousedown = function () {
+                return false;
+            };
+        target.style.cursor = "default";
+    }
+    disableSelection(document.body);
+</script>
+<script>
+    document.oncontextmenu = function () {
+        return false;
+    };
+</script>
+<script>
+    document.addEventListener("copy", (event) => {
+        var pagelink =
+            "\nИсточник: https://everytips.ru/5-zakonov-karmy-kotorye-podskazhut-chto-vy-delaete-ne-tak";
+        event.clipboardData.setData("text", document.getSelection() + pagelink);
+        event.preventDefault();
+    });
+</script>
+<script type="text/javascript" id="wp-postviews-cache-js-extra">
+    /* <![CDATA[ */
+    var viewsCacheL10n = {
+        admin_ajax_url: "https:\/\/everytips.ru\/wp-admin\/admin-ajax.php",
+        post_id: "87742",
+    };
+    /* ]]> */
+</script>
+<script
+        src="https://everytips.ru/wp-content/plugins/wp-postviews/postviews-cache.js"
+        id="wp-postviews-cache-js"
+></script>
+<script type="text/javascript" id="reboot-scripts-js-extra">
+    /* <![CDATA[ */
+    var settings_array = {
+        rating_text_average: "\u0441\u0440\u0435\u0434\u043d\u0435\u0435",
+        rating_text_from: "\u0438\u0437",
+        lightbox_display: "1",
+        sidebar_fixed: "",
+    };
+    var wps_ajax = {
+        url: "https:\/\/everytips.ru\/wp-admin\/admin-ajax.php",
+        nonce: "194aa57be4",
+    };
+    /* ]]> */
+</script>
+<script
+        src="https://everytips.ru/wp-content/themes/reboot/assets/js/scripts.min.js"
+        id="reboot-scripts-js"
+></script>
+<script
+        src="https://everytips.ru/wp-includes/js/comment-reply.min.js"
+        id="comment-reply-js"
+></script>

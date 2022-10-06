@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    {% include 'theme/block/head.html' %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body data-rsssl="1" class="{% block body %}{% endblock %}">
+<div id="page" class="site">
+    {% block content %}
+    {% endblock %}
+</div>
+<!-- #page -->
+{% include 'theme/block/footer.html' %}
+{% include 'theme/block/script.html' %}
+</body>
+</html>

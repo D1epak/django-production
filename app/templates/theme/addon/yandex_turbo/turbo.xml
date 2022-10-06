@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+        <title>My-tips.ru - rss yandex turbo plugin</title>
+        <link>{{ request.get_host }}</link>
+        <description>Yandex turbo rss xml generator</description>
+        {% for nitro in turbo %}
+            <item>
+                <title>{{ nitro.title }}</title>
+                <link>{{ request.get_host }}{{ nitro.get_absolute_url }}</link>
+                <description>{{ nitro.content|safe }}</description>
+                <guid>{{ request.get_host }}{{ nitro.get_absolute_url }}</guid>
+            </item>
+            <hr/>
+        {% endfor %}
+    </channel>
+</rss>

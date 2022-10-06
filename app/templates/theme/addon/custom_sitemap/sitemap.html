@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9">
+<head>
+    <title>XML Sitemap</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/static/css/sitemap.css">
+</head>
+<body>
+<div id="content">
+    <h1>XML Sitemap</h1>
+    <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a type="button" class="btn btn-primary" href="?page=1">&laquo; first</a>
+            <a type="button" class="btn btn-primary" href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+        {% if page_obj.has_next %}
+            <a type="button" class="btn btn-primary" href="?page={{ page_obj.next_page_number }}">next</a>
+            <a type="button" class="btn btn-primary" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+        <span class="expl">
+            <a style="color: black">Pages:</a>
+            {% for p in page_obj.paginator.page_range %}
+                {% if page_obj.number == p %}
+                    <a href="?page={{ p }}" style="color: #00d084">{{ p }}</a>
+                {% else %}
+                    <a href="?page={{ p }}">{{ p }}</a>
+                {% endif %}
+            {% endfor %}
+        </span>
+    </div>
+
+    <table id="sitemap" cellpadding="3">
+        <thead>
+        <tr>
+            <th width="80%">
+                URL
+            </th>
+            <th title="Last Modification Time" width="15%">
+                Last Mod.
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for serv in page_obj  %}
+            <tr>
+                <td>
+                    <a href="{% url 'blog:detail' serv.slug %}">{{request.get_host}}{% url 'blog:detail' serv.slug %}</a>
+                </td>
+                <td>{{ serv.date.ctime }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
